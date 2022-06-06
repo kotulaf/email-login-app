@@ -31,3 +31,9 @@ first things first, we rename the application.properties file to application.yml
 	- next we override the configure method and we basically configure that any request that goes through the URL is permitted, is allowed
 	- then we create an another override and a bean where we use the DaoAuthenticationProvider, and since our AppUserService implements UserServiceDetails, we are able to
 	  create a variable of our class and set it as the UserDetalsService
+	- at the moment security is completely done
+
+Some things had to be configured in order to work, but it mostly was missing annotations (for example the @Service annotation) and we must not forget that our Repo
+extends the JpaRepository
+
+Then we test with Thunder Client whether sending requests works, using the post method
