@@ -65,3 +65,9 @@ Also, if we try to continue with an email that has already been used we see that
 
 9) Next we create a Repo and a Service for our ConfirmationToken
 	- we do the standard stuff we already know and go back to AppUserService to create and save our token :)
+	- let's test it out in thunder client yet again and we can see that it works and we get the token in return in the console 
+	  and the confirmation token table gets created and we can see our tokenn being in there with an id that corresponds to the user
+	- now we make sure the person gets to verify the token and then we send the email
+
+10) We create an EmailSender and an EmailService, which implements the sender, we automatically generate the send method, that needs to be overridden
+	- we create a logger (that doesnt work yet) and basically the send method that sends emails

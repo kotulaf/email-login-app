@@ -19,6 +19,7 @@ import lombok.AllArgsConstructor;
 public class AppUserService implements UserDetailsService {
 
     private static final String USER_NOT_FOUND = "user with email %s not found";
+
     private final UserRepo appUserRepo;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
@@ -47,6 +48,6 @@ public class AppUserService implements UserDetailsService {
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);
         // TODO: send email
-        return "it works";
+        return token;
     }
 }
