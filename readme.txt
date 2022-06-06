@@ -51,4 +51,17 @@ We continue testing with thunder client and if we try to log in we will see the 
 Also, if we try to continue with an email that has already been used we see that thunder client triggers an error
 
 8) Now it's time to make email validation functional:
-	- 
+	- first is expiration link and then an email
+	- we create a new package token and a ConfirmationToken class inside it and give it these variables:
+		. id
+		. token
+		. createsAt
+		. expiresAt
+		. confirmsAt
+	- the last three are of type LocalDateTime, to check whether the link is still valid
+	- we also need to define an AppUser variable and give it the @ManyToOne and @JoinColumn annotations
+	  @ManyToOne is basically an inter-table relationship, in this context meaning that the user can have multiple tokens
+	  @JoinColumn which is basically an extension annotation for the first one 
+
+9) Next we create a Repo and a Service for our ConfirmationToken
+	- we do the standard stuff we already know and go back to AppUserService to create and save our token :)

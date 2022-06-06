@@ -3,10 +3,15 @@ package com.simpleapp.email_app.app_user.registration.token;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+
+import com.simpleapp.email_app.app_user.AppUser;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class ConfirmationToken {
     @Id
     @SequenceGenerator(name = "confirmation_token_sequence", sequenceName = "confirmation_token_sequence", allocationSize = 1)
@@ -28,13 +34,19 @@ public class ConfirmationToken {
     private LocalDateTime createsAt;
     @Column(nullable = false)
     private LocalDateTime expiresAt;
-    private LocalDateTime confirmedAt;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, LocalDateTime confirmedAt)
+    private LocalDateTime confirmsAt;
+
+    @ManyToOne
+    @JoinColumn(nullable = false,
+                name = "app_user_id")
+    private AppUser appUser;
+
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, AppUser appUser)
     {
         this.token = token;
         this.createsAt = createdAt;
         this.expiresAt = expiredAt;
-        this.confirmedAt = confirmedAt;
+        this.appUser = appUser;
     }
 }
