@@ -22,4 +22,12 @@ first things first, we rename the application.properties file to application.yml
 
 3) We create a new package called Registration and create a Controller, Request and Service
 	- we start in the Controller, where we give it annotations and create a method register, which is connected to the request, that's where we will go next
-	- in the 
+	- in the Request, we put all the desired variables (which are fname, lname, email and password) and annotate the class, as seen in the program
+	- since the register function does not exist in the Service, we have it be automatically created and have it return something to test whether it works or not.
+
+4) The Security package is created next, where there is really only one class is where things are configured, and that is WebSecurityConfig we will also have PasswordEncoder, but in a different package
+	-  in our WebSecurityConfig we give it the new annotations to me with this project, @Configuration (used for dependency injection) and @EnableWebSecurity and the class will extend the
+	   WebSecurityConfigureAdapter class, which deprecated, meaning that its not recommended to use it and its being removed
+	- next we override the configure method and we basically configure that any request that goes through the URL is permitted, is allowed
+	- then we create an another override and a bean where we use the DaoAuthenticationProvider, and since our AppUserService implements UserServiceDetails, we are able to
+	  create a variable of our class and set it as the UserDetalsService
