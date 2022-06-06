@@ -37,3 +37,7 @@ Some things had to be configured in order to work, but it mostly was missing ann
 extends the JpaRepository
 
 Then we test with Thunder Client whether sending requests works, using the post method
+Spring security in action: if we go at the url /hello we will be prompted to be sign in page
+
+5) We will check in Service whether the email is valid, therefore we create an email validator, which implements Predicate<String>
+6) Back in RegistrationService, we change up the register function a little bit so we use our email validator and have some basic functionality like throwing errors
