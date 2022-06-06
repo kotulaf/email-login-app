@@ -40,4 +40,11 @@ Then we test with Thunder Client whether sending requests works, using the post 
 Spring security in action: if we go at the url /hello we will be prompted to be sign in page
 
 5) We will check in Service whether the email is valid, therefore we create an email validator, which implements Predicate<String>
+
 6) Back in RegistrationService, we change up the register function a little bit so we use our email validator and have some basic functionality like throwing errors
+   and basically sign up the user
+
+7) In AppUserService we create the signUpUser method, we chceck whether the user exists (whether the email is already being used), if it is the program prints an error
+   then we create an encoded password for the users and assign it instead of the one they currently have and then save the user
+
+We continue testing with thunder client

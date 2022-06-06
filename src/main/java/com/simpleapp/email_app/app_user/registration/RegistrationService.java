@@ -3,6 +3,7 @@ package com.simpleapp.email_app.app_user.registration;
 import org.springframework.stereotype.Service;
 
 import com.simpleapp.email_app.app_user.AppUser;
+import com.simpleapp.email_app.app_user.AppUserRole;
 import com.simpleapp.email_app.app_user.AppUserService;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class RegistrationService {
         {
             throw new IllegalStateException("email not valid");
         }
-        return appUserService.signUpUser(new AppUser(request.getFirstName(), request.getLastName(), request.));
+        return appUserService.signUpUser(new AppUser(request.getFirstName(), request.getLastName(), request.getEmail(), request.getPassword(), AppUserRole.USER));
     }
     
 }
