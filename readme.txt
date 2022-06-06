@@ -47,4 +47,8 @@ Spring security in action: if we go at the url /hello we will be prompted to be 
 7) In AppUserService we create the signUpUser method, we chceck whether the user exists (whether the email is already being used), if it is the program prints an error
    then we create an encoded password for the users and assign it instead of the one they currently have and then save the user
 
-We continue testing with thunder client
+We continue testing with thunder client and if we try to log in we will see the "user is disabled" error, which needs fixing
+Also, if we try to continue with an email that has already been used we see that thunder client triggers an error
+
+8) Now it's time to make email validation functional:
+	- 
