@@ -70,4 +70,11 @@ Also, if we try to continue with an email that has already been used we see that
 	- now we make sure the person gets to verify the token and then we send the email
 
 10) We create an EmailSender and an EmailService, which implements the sender, we automatically generate the send method, that needs to be overridden
-	- we create a logger (that doesnt work yet) and basically the send method that sends emails
+	- we create a logger and basically the send method that sends emails
+	- certain things had to be copied from the source code from GitHub as itwas skipped in the tutorial
+	- we take an example buildEmail off the internet, we pass the name and link into it, the link
+
+11) Next we want to try sending out an email using a mail server, in our case maildev, which we install in terminal
+	- next we run maildev by typing maildev in the terminal and the web app is running on port 1080, but beware to put the correct URL in,
+	  which is 127.0.0.1:1080 and emails will be accepted on port 1025, make sure you put that in your application.yml file
+	- emails should be able to be confirmed, that is not the case here, therefore it need fixing :)
